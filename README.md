@@ -18,11 +18,11 @@ $ yarn install
 ## Executando
 ```bash
 # usando npm
-$  npm run start
+$  npm run dev
 ```
 ```bash
 # usando yarn
-$ yarn start
+$ yarn dev
 ```
 
 
