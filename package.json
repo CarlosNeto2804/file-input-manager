@@ -1,7 +1,7 @@
 {
   "name": "file-input-component",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/CarlosNeto2804/file-input-manager.git",
   "author": "Carlos Alberto Neto <carloshtcursos@gmail.com>",
   "license": "MIT",
