@@ -2,7 +2,7 @@
   "name": "file-input-component",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:CarlosNeto2804/file-input-manager.git",
+  "repository": "https://github.com/CarlosNeto2804/file-input-manager.git",
   "author": "Carlos Alberto Neto <carloshtcursos@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -17,8 +17,8 @@
     "express": "^4.17.1"
   },
   "engines": {
-    "node":"v12.13.0",
-    "npm":"6.13.7",
-    "yarn":"1.21.1"
+    "node":">=12.13.0",
+    "npm":">=6.13.7",
+    "yarn":">=1.21.1"
   }
 }
