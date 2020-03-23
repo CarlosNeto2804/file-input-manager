@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>File Input Manager</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
       rel="stylesheet"
@@ -23,55 +24,57 @@
     <div id="app">
       <v-app>
         <v-content>
-          <v-row justify="center">
-            <div>
-            <v-row justify="center"> 
-                <v-col cols="12">
-                  <v-file-input
-                    ref="input_file"
-                    color="#3D8BCD"
-                    prepend-icon="mdi-camera"
-                    placeholder="Toque para adicionar imagens"
-                    id="input_file"
-                    accept="image/jpeg, image/jpg, image/png"
-                    hide-details
-                    clear-icon
-                    outlined
-                    @change="onFileSelected"
-                  >
-                  </v-file-input>
-                </v-col>
-                <v-col cols="12">
-                  <v-list dense>
-                    <v-list-item-group color="#3D8BCD">
-                      <v-list-item v-for="(item, i) in previews" :key="i">
-                        <v-list-item-avatar>
-                          <v-img
-                            :src="item"
-                            contain
-                            max-height="300"
-                            max-width="300"
-                          />
-                        </v-list-item-avatar>
-                        <v-list-item-content>
-                          <v-list-item-title
-                            >anexo-{{ i + 1 }}</v-list-item-title
-                          >
-                        </v-list-item-content>
-                        <v-list-item-action
-                          @click="deleteItem(item)"
-                        >
-                          <v-icon color="red darken-3">
-                            mdi-delete
-                          </v-icon>
-                        </v-list-item-action>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list>
-                </v-col>
-              </v-row>
-            </div>
-          </v-row>
+          <v-container>
+            <v-row justify="center">
+              <v-col cols="11" md="7">
+                <h3>File Input Manager</h3>
+              </v-col>
+              <v-col cols="11" md="7">
+                <v-file-input
+                  ref="input_file"
+                  color="#3D8BCD"
+                  prepend-icon="mdi-camera"
+                  placeholder="Toque para adicionar imagens"
+                  id="input_file"
+                  accept="image/jpeg, image/jpg, image/png, image/svg"
+                  hide-details
+                  clear-icon
+                  outlined
+                  @change="onFileSelected"
+                >
+                </v-file-input>
+              </v-col>
+              <v-col cols="11" md="7">
+                <v-list dense>
+                  <v-list-item-group color="#3D8BCD">
+                    <v-list-item v-for="(item, i) in previews" :key="i">
+                      <v-list-item-avatar>
+                        <v-img
+                          :src="item"
+                          contain
+                          max-height="300"
+                          max-width="300"
+                        />
+                      </v-list-item-avatar>
+                      <v-list-item-content>
+                        <v-list-item-title>anexo-{{ i + 1 }}</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action @click="deleteItem(item)">
+                        <v-icon color="red darken-3">
+                          mdi-delete
+                        </v-icon>
+                      </v-list-item-action>
+                      <v-list-item-action @click="openImage(item)">
+                        <v-icon color="blue darken-3">
+                          mdi-eye
+                        </v-icon>
+                      </v-list-item-action>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-content>
       </v-app>
     </div>
@@ -133,6 +136,17 @@
               reader.onerror = reject;
               reader.readAsDataURL(file);
             });
+          },
+          openImage(image) {
+            if (image && image != undefined && image != null && image != "") {
+              const imageWindow = window.open(""); 
+              imageWindow.document.write(
+                `<iframe width='100%' height='100%' src='${encodeURI(
+                  image
+                )}'></iframe>`
+              );
+              imageWindow.focus;
+            }
           },
           /**
            *@param {Array<File>} items imagens

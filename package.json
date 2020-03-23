@@ -1,0 +1,15 @@
+{
+  "name": "file-input-component",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CarlosNeto2804/file-input-manager.git",
+  "author": "Carlos Alberto Neto <carloshtcursos@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start":"lite-server index.html"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
